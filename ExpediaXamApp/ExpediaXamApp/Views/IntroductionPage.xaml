@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExpediaXamApp.Views.IntroductionPage"
+             Padding="20, 40"
+             Title="{Binding PageTitle}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="plainLabel" TargetType="Label">
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="BackgroundColor" Value="#fff"/>
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="Large" />
+            </Style>
+            <Style x:Key="plainButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#ddd"/>
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="BorderRadius" Value="20"/>
+                <Setter Property="FontSize" Value="Large" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" >
+            <Grid HorizontalOptions="Center" VerticalOptions="Center" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+                <Grid Grid.Row="0" Grid.ColumnSpan="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Text="Expedia" Style="{StaticResource plainButton}" />
+                    <Button Grid.Row="0" Grid.Column="3" Text="Sign in" TextColor="CornflowerBlue" Style="{StaticResource plainButton}" />
+                </Grid>
+                <Button Grid.Row="1" Grid.Column="0" BackgroundColor="ForestGreen" Text="Hotels" Image="hotel.png" Style="{StaticResource plainButton}" />
+                <Button Grid.Row="1" Grid.Column="1" BackgroundColor="DodgerBlue" Text="Flights" Command="{Binding ShowFlightsCommand}" Image="airplane.png" Style="{StaticResource plainButton}" />
+                <Button Grid.Row="2" Grid.Column="0" BackgroundColor="MediumVioletRed" Text="Cars" Image="car.png" Style="{StaticResource plainButton}" />
+                <Button Grid.Row="2" Grid.Column="1" BackgroundColor="DarkOrange" Text="Activities" Image="playlist.png" Style="{StaticResource plainButton}" />
+                <Grid Grid.Row="3" Grid.ColumnSpan="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Text="Popular hotels tonight" Style="{StaticResource plainButton}" />
+                    <Button Grid.Row="0" Grid.Column="3" Text="See more" TextColor="CornflowerBlue" Style="{StaticResource plainButton}" />
+                </Grid>
+            </Grid>
+    </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExpediaXamApp.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,7 +12,7 @@ namespace ExpediaXamApp
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new IntroductionPage());
         }
 
         protected override void OnStart()

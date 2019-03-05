@@ -157,4 +157,40 @@
       <Name>ExpediaXamApp</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\playlist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\playlist%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\playlist%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\car.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\car%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\car%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\hotel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\hotel%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\hotel%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\airplane.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\airplane%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\airplane%403x.png" />
+  </ItemGroup>
 </Project>
