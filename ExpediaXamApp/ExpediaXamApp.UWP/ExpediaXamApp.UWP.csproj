@@ -132,6 +132,8 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="car.png" />
+    <Content Include="flight.png" />
+    <Content Include="flightland.png" />
     <Content Include="hotel.png" />
     <Content Include="playlist.png" />
     <Content Include="Properties\Default.rd.xml" />

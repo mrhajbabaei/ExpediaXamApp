@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
+using System.Xml.Schema;
 using ExpediaXamApp.Models;
 using Xamarin.Forms;
 
 namespace ExpediaXamApp.Converters
 {
-    class PlaceToTextValueConverter : IValueConverter
+    class BoardingMessageConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value is Leg leg)
-                return $"{leg.Departure} → {leg.Arrival}";
+                return $"Boarding {leg.STD} at Gate {leg.DepartureGateNumber}";
 
             return null;
         }

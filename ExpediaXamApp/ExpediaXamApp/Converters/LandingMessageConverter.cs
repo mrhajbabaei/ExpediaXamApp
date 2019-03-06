@@ -7,12 +7,12 @@ using Xamarin.Forms;
 
 namespace ExpediaXamApp.Converters
 {
-    class PlaceToTextValueConverter : IValueConverter
+    class LandingMessageConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value is Leg leg)
-                return $"{leg.Departure} → {leg.Arrival}";
+                return $"Landing {leg.STA} at Gate {leg.ArrivalGateNumber}";
 
             return null;
         }

@@ -10,11 +10,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
+    <None Remove="Images\hotelbudapest.jpg" />
+    <None Remove="Images\hotelcasablanca.jpg" />
+    <None Remove="Images\shelbygt500.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Extensions\" />
+    <EmbeddedResource Include="Images\hotelbudapest.jpg" />
+    <EmbeddedResource Include="Images\hotelcasablanca.jpg" />
+    <EmbeddedResource Include="Images\shelbygt500.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
   </ItemGroup>
 
   <ItemGroup>

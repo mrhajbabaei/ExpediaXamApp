@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:extensions="clr-namespace:ExpediaXamApp.Extensions;assembly=ExpediaXamApp"
              x:Class="ExpediaXamApp.Views.IntroductionPage"
-             Padding="20, 40"
-             Title="{Binding PageTitle}">
+             Title="{Binding PageTitle}"
+             BackgroundColor="LightGray">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -12,61 +13,70 @@
                 <Setter Property="VerticalTextAlignment" Value="Center"/>
                 <Setter Property="BackgroundColor" Value="#fff"/>
                 <Setter Property="TextColor" Value="Black" />
-                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="Font" Value="Bold, Small" />
             </Style>
             <Style x:Key="plainButton" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="#ddd"/>
                 <Setter Property="TextColor" Value="Black" />
                 <Setter Property="BorderRadius" Value="20"/>
-                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="Font" Value="Bold, Small" />
+            </Style>
+            <Style x:Key="plainImage" TargetType="Image">
+                <Setter Property="HorizontalOptions" Value="Fill" />
+                <Setter Property="VerticalOptions" Value="Fill" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" >
-            <Grid HorizontalOptions="Center" VerticalOptions="Center" >
+        <Grid  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20, 40" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-                <Grid Grid.Row="0" Grid.ColumnSpan="2">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Text="Expedia" Style="{StaticResource plainButton}" />
-                    <Button Grid.Row="0" Grid.Column="3" Text="Sign in" TextColor="CornflowerBlue" Style="{StaticResource plainButton}" />
-                </Grid>
-                <Button Grid.Row="1" Grid.Column="0" BackgroundColor="ForestGreen" Text="Hotels" Image="hotel.png" Style="{StaticResource plainButton}" />
-                <Button Grid.Row="1" Grid.Column="1" BackgroundColor="DodgerBlue" Text="Flights" Command="{Binding ShowFlightsCommand}" Image="airplane.png" Style="{StaticResource plainButton}" />
-                <Button Grid.Row="2" Grid.Column="0" BackgroundColor="MediumVioletRed" Text="Cars" Image="car.png" Style="{StaticResource plainButton}" />
-                <Button Grid.Row="2" Grid.Column="1" BackgroundColor="DarkOrange" Text="Activities" Image="playlist.png" Style="{StaticResource plainButton}" />
-                <Grid Grid.Row="3" Grid.ColumnSpan="2">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Text="Popular hotels tonight" Style="{StaticResource plainButton}" />
-                    <Button Grid.Row="0" Grid.Column="3" Text="See more" TextColor="CornflowerBlue" Style="{StaticResource plainButton}" />
-                </Grid>
+            <Grid Grid.Row="0" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Text="Expedia" Style="{StaticResource plainButton}" />
+                <Button Grid.Row="0" Grid.Column="3" Text="Sign in" TextColor="CornflowerBlue" Style="{StaticResource plainButton}" />
             </Grid>
-    </StackLayout>
+            <Button Grid.Row="1" Grid.Column="0" BackgroundColor="ForestGreen" Text="Hotels" Image="hotel.png" Style="{StaticResource plainButton}" />
+            <Button Grid.Row="1" Grid.Column="1" BackgroundColor="DodgerBlue" Text="Flights" Command="{Binding ShowFlightsCommand}" Image="airplane.png" Style="{StaticResource plainButton}" />
+            <Button Grid.Row="2" Grid.Column="0" BackgroundColor="MediumVioletRed" Text="Cars" Image="car.png" Style="{StaticResource plainButton}" />
+            <Button Grid.Row="2" Grid.Column="1" BackgroundColor="DarkOrange" Text="Activities" Image="playlist.png" Style="{StaticResource plainButton}" />
+            <Grid Grid.Row="3" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Text="Popular hotels tonight" Style="{StaticResource plainButton}" />
+                <Button Grid.Row="0" Grid.Column="3" Text="See more" TextColor="CornflowerBlue" Style="{StaticResource plainButton}" />
+            </Grid>
+            <Image Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="{extensions:ImageResource ExpediaXamApp.Images.hotelbudapest.jpg}" Style="{StaticResource plainImage}" />
+            <Image Grid.Row="6" Grid.Column="0" Grid.RowSpan="2" Source="{extensions:ImageResource ExpediaXamApp.Images.hotelcasablanca.jpg}" />
+            <Image Grid.Row="6" Grid.Column="1" Grid.RowSpan="2" Source="{extensions:ImageResource ExpediaXamApp.Images.shelbygt500.jpg}" />
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
