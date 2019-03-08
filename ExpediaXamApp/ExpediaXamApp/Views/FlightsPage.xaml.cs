@@ -5,7 +5,7 @@ using Xamarin.Forms.Xaml;
 namespace ExpediaXamApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class FlightsPage : ContentPage
+	public partial class FlightsPage : TabbedPage
 	{
 		public FlightsPage ()
 		{

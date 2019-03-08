@@ -22,8 +22,9 @@
                 <Setter Property="Font" Value="Bold, Small" />
             </Style>
             <Style x:Key="plainImage" TargetType="Image">
-                <Setter Property="HorizontalOptions" Value="Fill" />
-                <Setter Property="VerticalOptions" Value="Fill" />
+                <Setter Property="HorizontalOptions" Value="StartAndExpand" />
+                <Setter Property="VerticalOptions" Value="StartAndExpand" />
+                <Setter Property="Aspect" Value="Fill" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>

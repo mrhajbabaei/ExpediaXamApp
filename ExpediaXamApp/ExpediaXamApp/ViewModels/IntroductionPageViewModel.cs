@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace ExpediaXamApp.ViewModels
 {
-    class IntroductionPageViewModel : BaseViewModel
+    public class IntroductionPageViewModel : BaseViewModel
     {
         private string _pageTitle = "Introduction Page";
 

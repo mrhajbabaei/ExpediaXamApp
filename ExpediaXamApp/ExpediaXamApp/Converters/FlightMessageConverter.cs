@@ -1,18 +1,27 @@
-﻿using System;
+﻿using ExpediaXamApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
-using ExpediaXamApp.Models;
 using Xamarin.Forms;
 
 namespace ExpediaXamApp.Converters
 {
-    class LandingMessageConverter : IValueConverter
+    class FlightMessageConverte : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value is Leg leg)
-                return $"Landing {leg.STA} at Gate {leg.ArrivalGateNumber}";
+            {
+                if ( leg.ATD != "" && leg.ATA != "" )
+                    return "See you soon ;)";
+
+                else if ( leg.ATD != "" )
+                    return "Have a happy landing ;)";
+
+                else
+                    return "It's go time";
+            }
 
             return null;
         }

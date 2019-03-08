@@ -13,7 +13,12 @@ namespace ExpediaXamApp.Converters
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value is Leg leg)
-                return $"Boarding {leg.STD} at Gate {leg.DepartureGateNumber}";
+            {
+                if (leg.ATD == "")
+                    return $"Boarding {leg.STD} at Gate {leg.DepartureGateNumber}";
+
+                return $"Boarding {leg.STA} at Gate {leg.ArrivalGateNumber}";
+            }
 
             return null;
         }

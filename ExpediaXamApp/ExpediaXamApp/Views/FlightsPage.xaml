@@ -1,12 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ExpediaXamApp.Views.FlightsPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+            xmlns:Converters="clr-namespace:ExpediaXamApp.Converters"
+            xmlns:Extensions="clr-namespace:ExpediaXamApp.Extensions"
+            x:Class="ExpediaXamApp.Views.FlightsPage"
+             Title="{Binding PageTitle}">
+    <TabbedPage.Resources>
+        <ResourceDictionary>
+            <Converters:BoardingMessageConverter x:Key="BoardingMessageConv" />
+            <Converters:PlaceToTextValueConverter x:Key="PlaceToTextValueConv" />
+            <Converters:FlightMessageConverte x:Key="FlightMessageConv" />
+            <Converters:TimeToTextValueConverter x:Key="TimeToTextValueConv" />
+        </ResourceDictionary>
+    </TabbedPage.Resources>
+    <TabbedPage.Children>
+        <ContentPage Title="MY Flights" Icon="flight.png">
+                <ScrollView>
+                    <Extensions:GradientColorStack StartColor="Violet" EndColor="Red">
+                        <StackLayout>
+                        <Label Text="{Binding FlightMessageLeg, Converter={x:StaticResource FlightMessageConv}}" Font="Bold,Small" HorizontalOptions="Center" />
+                            <Label Text="{Binding BoardingMessageLeg, Converter={StaticResource BoardingMessageConv}}" Font="Bold,Small" HorizontalOptions="Center" />
+                            <Label Text="{Binding PlaceLeg, Converter={StaticResource PlaceToTextValueConv}}" Font="Bold, Large" HorizontalOptions="Center" />
+                            <Frame OutlineColor="Black">
+                                <Label Text="View Boarding pass" Font="Bold, Micro" HorizontalOptions="Center" />
+                            </Frame>
+                            <Picker 
+                                TextColor="YellowGreen" 
+                                Title="All flights"
+                                ItemsSource="{Binding Legs}"
+                                ItemDisplayBinding="{Binding .,Converter={StaticResource PlaceToTextValueConv}}"
+                                SelectedItem="{Binding SelectedLeg}" />
+                        </StackLayout>
+                    </Extensions:GradientColorStack>
+                    <!--<StackLayout Orientation="Horizontal">
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Company" FontAttributes="Bold"/>
+                                    <Span Text=" ©" FontSize="Micro" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>-->
+                </ScrollView>
+        </ContentPage>
+            <ContentPage Title="Edit Data" Icon="permdata.png">
+                <ContentPage.Content>
+                    <TableView Intent="Menu">
+                        <TableRoot>
+                            <TableSection BindingContext="{Binding TableViewLeg}">
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal">
+                                        <ListView SeparatorColor="OrangeRed">
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <ImageCell Text="{Binding ., Converter={x:StaticResource PlaceToTextValueConv}}" Detail="{Binding ., Converter={x:StaticResource TimeToTextValueConv}}" ImageSource="flight.png" >
+                                                        <!--<TextCell.ContextActions>
+                                                            <MenuItem Text="Delete" Clicked="DeletItem_OnClicked" IsDestructive="True" CommandParameter="{Binding .}"></MenuItem>
+                                                        </TextCell.ContextActions>-->
+                                                    </ImageCell>
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                        </ListView>
+                                    </StackLayout>
+                                </ViewCell>
+                            </TableSection>
+                        </TableRoot>
+                    </TableView>
+                </ContentPage.Content>
+            </ContentPage>
+        </TabbedPage.Children>
+    </TabbedPage>
