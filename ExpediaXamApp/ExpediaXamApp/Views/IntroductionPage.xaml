@@ -76,8 +76,8 @@
                 <Button Grid.Row="0" Grid.Column="3" Text="See more" TextColor="CornflowerBlue" Style="{StaticResource plainButton}" />
             </Grid>
             <Image Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="{extensions:ImageResource ExpediaXamApp.Images.hotelbudapest.jpg}" Style="{StaticResource plainImage}" />
-            <Image Grid.Row="6" Grid.Column="0" Grid.RowSpan="2" Source="{extensions:ImageResource ExpediaXamApp.Images.hotelcasablanca.jpg}" />
-            <Image Grid.Row="6" Grid.Column="1" Grid.RowSpan="2" Source="{extensions:ImageResource ExpediaXamApp.Images.shelbygt500.jpg}" />
+            <Image Grid.Row="6" Grid.Column="0" Grid.RowSpan="2" Source="{extensions:ImageResource ExpediaXamApp.Images.hotelcasablanca.jpg}" Style="{StaticResource plainImage}" />
+            <Image Grid.Row="6" Grid.Column="1" Grid.RowSpan="2" Source="{extensions:ImageResource ExpediaXamApp.Images.shelbygt500.jpg}" Style="{StaticResource plainImage}" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

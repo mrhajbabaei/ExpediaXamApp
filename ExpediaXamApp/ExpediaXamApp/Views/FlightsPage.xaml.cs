@@ -1,4 +1,5 @@
-﻿using ExpediaXamApp.ViewModels;
+﻿using System;
+using ExpediaXamApp.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,5 +13,5 @@ namespace ExpediaXamApp.Views
 			InitializeComponent ();
             BindingContext = new FlightsPageViewModel();
 		}
-	}
+    }
 }

@@ -11,53 +11,80 @@
             <Converters:PlaceToTextValueConverter x:Key="PlaceToTextValueConv" />
             <Converters:FlightMessageConverte x:Key="FlightMessageConv" />
             <Converters:TimeToTextValueConverter x:Key="TimeToTextValueConv" />
+            <Converters:TimeMessageConverter x:Key="TimeMessageConv" />
+            <Converters:TimeColorConverter x:Key="TimeColorConv" />
+            <Converters:LegToGateConverter x:Key="LegToGateConv" />
+            <Converters:LegToDepartureConverter x:Key="LegToDepartureConv" />
         </ResourceDictionary>
     </TabbedPage.Resources>
     <TabbedPage.Children>
         <ContentPage Title="MY Flights" Icon="flight.png">
-                <ScrollView>
-                    <Extensions:GradientColorStack StartColor="Violet" EndColor="Red">
-                        <StackLayout>
-                        <Label Text="{Binding FlightMessageLeg, Converter={x:StaticResource FlightMessageConv}}" Font="Bold,Small" HorizontalOptions="Center" />
-                            <Label Text="{Binding BoardingMessageLeg, Converter={StaticResource BoardingMessageConv}}" Font="Bold,Small" HorizontalOptions="Center" />
-                            <Label Text="{Binding PlaceLeg, Converter={StaticResource PlaceToTextValueConv}}" Font="Bold, Large" HorizontalOptions="Center" />
-                            <Frame OutlineColor="Black">
-                                <Label Text="View Boarding pass" Font="Bold, Micro" HorizontalOptions="Center" />
+            <ContentPage.Content>
+                <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                    <Extensions:GradientColorStack Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="6" StartColor="Violet" EndColor="Red" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
+                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" >
+                            <Label Text="{Binding SelectedLeg, Converter={x:StaticResource FlightMessageConv}}" Font="Bold,Small" HorizontalOptions="CenterAndExpand" />
+                            <Label Text="{Binding SelectedLeg, Converter={StaticResource BoardingMessageConv}}" Font="Bold,Small" HorizontalOptions="CenterAndExpand" />
+                            <Label Text="{Binding SelectedLeg, Converter={StaticResource PlaceToTextValueConv}}" Font="Bold, Large" HorizontalOptions="CenterAndExpand" />
+                            <Frame OutlineColor="Black" HorizontalOptions="CenterAndExpand">
+                                <Label Text="View Boarding pass" Font="Bold, Micro" HorizontalOptions="CenterAndExpand" />
                             </Frame>
                             <Picker 
-                                TextColor="YellowGreen" 
-                                Title="All flights"
+                                HorizontalOptions="CenterAndExpand"
+                                TextColor="Blue"
+                                Title="All Flights"
                                 ItemsSource="{Binding Legs}"
                                 ItemDisplayBinding="{Binding .,Converter={StaticResource PlaceToTextValueConv}}"
                                 SelectedItem="{Binding SelectedLeg}" />
                         </StackLayout>
                     </Extensions:GradientColorStack>
-                    <!--<StackLayout Orientation="Horizontal">
-                        <Label>
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="Company" FontAttributes="Bold"/>
-                                    <Span Text=" ©" FontSize="Micro" />
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
-                    </StackLayout>-->
-                </ScrollView>
+                    <!--<Label Text="Term" Grid.Row="6" Grid.Column="0" />
+                    <Label Text="Gate" Grid.Row="6" Grid.Column="1" />
+                    <Label Text="Seat" Grid.Row="6" Grid.Column="2" />
+                    <Label Text="Depart" Grid.Row="6" Grid.Column="3" />
+                    <Label Text="1" Grid.Row="7" Grid.Column="0" />
+                    <Label Text="{Binding SelectedLeg, Converter={x:StaticResource LegToGateConv}}" Grid.Row="7" Grid.Column="1" />
+                    <Label Text="B17" Grid.Row="7" Grid.Column="2" />-->
+                    <!--<Label Text="{Binding SelectedLeg, Converter={x:StaticResource LegToDepartureConv}}" Grid.Row="7" Grid.Column="3" />
+                    <Label Text="{Binding SelectedLeg, Converter={x:StaticResource TimeMessageConv}}" TextColor="{Binding SelectedLeg, Converter={x:StaticResource TimeColorConv}}" Grid.Row="7" Grid.Column="4" />-->
+                </Grid>
+            </ContentPage.Content>
         </ContentPage>
             <ContentPage Title="Edit Data" Icon="permdata.png">
                 <ContentPage.Content>
-                    <TableView Intent="Menu">
+                    <TableView Intent="Menu" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand">
                         <TableRoot>
-                            <TableSection BindingContext="{Binding TableViewLeg}">
+                        <TableSection>
                                 <ViewCell>
                                     <StackLayout Orientation="Horizontal">
-                                        <ListView SeparatorColor="OrangeRed">
+                                    <ListView SeparatorColor="OrangeRed" ItemsSource="{Binding Legs}">
                                             <ListView.ItemTemplate>
                                                 <DataTemplate>
                                                     <ImageCell Text="{Binding ., Converter={x:StaticResource PlaceToTextValueConv}}" Detail="{Binding ., Converter={x:StaticResource TimeToTextValueConv}}" ImageSource="flight.png" >
-                                                        <!--<TextCell.ContextActions>
-                                                            <MenuItem Text="Delete" Clicked="DeletItem_OnClicked" IsDestructive="True" CommandParameter="{Binding .}"></MenuItem>
-                                                        </TextCell.ContextActions>-->
+                                                        <TextCell.ContextActions>
+                                                            <MenuItem Text="Delete" Command="DeleteFlightCommand" IsDestructive="True" CommandParameter="{Binding .}" />
+                                                        </TextCell.ContextActions>
                                                     </ImageCell>
                                                 </DataTemplate>
                                             </ListView.ItemTemplate>
