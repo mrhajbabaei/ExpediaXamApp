@@ -23,19 +23,16 @@ namespace ExpediaXamApp.Converters
                         return Color.Green;
                     }
 
-                    if (leg.ATD != "")
-                    {
-                        if (DateTime.Parse(leg.ATD) > DateTime.Parse(leg.STD))
-                            return Color.Red;
+                    if (DateTime.Parse(leg.ATD) > DateTime.Parse(leg.STD))
+                        return Color.Red;
 
-                        return Color.Green;
-                    }
+                    return Color.Green;
                 }
 
                 return Color.Black;
             }
 
-            return null;
+            return Color.White;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

@@ -15,6 +15,10 @@
             <Converters:TimeColorConverter x:Key="TimeColorConv" />
             <Converters:LegToGateConverter x:Key="LegToGateConv" />
             <Converters:LegToDepartureConverter x:Key="LegToDepartureConv" />
+            <Style x:Key="PlainLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="Font" Value="Bold, Small" />
+            </Style>
         </ResourceDictionary>
     </TabbedPage.Resources>
     <TabbedPage.Children>
@@ -47,8 +51,8 @@
                             <Label Text="{Binding SelectedLeg, Converter={x:StaticResource FlightMessageConv}}" Font="Bold,Small" HorizontalOptions="CenterAndExpand" />
                             <Label Text="{Binding SelectedLeg, Converter={StaticResource BoardingMessageConv}}" Font="Bold,Small" HorizontalOptions="CenterAndExpand" />
                             <Label Text="{Binding SelectedLeg, Converter={StaticResource PlaceToTextValueConv}}" Font="Bold, Large" HorizontalOptions="CenterAndExpand" />
-                            <Frame OutlineColor="Black" HorizontalOptions="CenterAndExpand">
-                                <Label Text="View Boarding pass" Font="Bold, Micro" HorizontalOptions="CenterAndExpand" />
+                            <Frame OutlineColor="Black" HorizontalOptions="Center">
+                                <Label Text="View Boarding Pass" Font="Bold, Micro" HorizontalOptions="Center" />
                             </Frame>
                             <Picker 
                                 HorizontalOptions="CenterAndExpand"
@@ -59,15 +63,15 @@
                                 SelectedItem="{Binding SelectedLeg}" />
                         </StackLayout>
                     </Extensions:GradientColorStack>
-                    <!--<Label Text="Term" Grid.Row="6" Grid.Column="0" />
-                    <Label Text="Gate" Grid.Row="6" Grid.Column="1" />
-                    <Label Text="Seat" Grid.Row="6" Grid.Column="2" />
-                    <Label Text="Depart" Grid.Row="6" Grid.Column="3" />
-                    <Label Text="1" Grid.Row="7" Grid.Column="0" />
-                    <Label Text="{Binding SelectedLeg, Converter={x:StaticResource LegToGateConv}}" Grid.Row="7" Grid.Column="1" />
-                    <Label Text="B17" Grid.Row="7" Grid.Column="2" />-->
-                    <!--<Label Text="{Binding SelectedLeg, Converter={x:StaticResource LegToDepartureConv}}" Grid.Row="7" Grid.Column="3" />
-                    <Label Text="{Binding SelectedLeg, Converter={x:StaticResource TimeMessageConv}}" TextColor="{Binding SelectedLeg, Converter={x:StaticResource TimeColorConv}}" Grid.Row="7" Grid.Column="4" />-->
+                    <Label Text="Term" Grid.Row="6" Grid.Column="0" Style="{StaticResource PlainLabel}" />
+                    <Label Text="Gate" Grid.Row="6" Grid.Column="1" Style="{StaticResource PlainLabel}" />
+                    <Label Text="Seat" Grid.Row="6" Grid.Column="2" Style="{StaticResource PlainLabel}" />
+                    <Label Text="Depart" Grid.Row="6" Grid.Column="3" Style="{StaticResource PlainLabel}" />
+                    <Label Text="1" Grid.Row="7" Grid.Column="0" Style="{StaticResource PlainLabel}" />
+                    <Label Text="{Binding SelectedLeg, Converter={x:StaticResource LegToGateConv}}" Grid.Row="7" Grid.Column="1" Style="{StaticResource PlainLabel}" />
+                    <Label Text="B17" Grid.Row="7" Grid.Column="2" Style="{StaticResource PlainLabel}" />
+                    <Label Text="{Binding SelectedLeg, Converter={x:StaticResource LegToDepartureConv}}" Grid.Row="7" Grid.Column="3" Style="{StaticResource PlainLabel}" />
+                    <Label Text="{Binding SelectedLeg, Converter={x:StaticResource TimeMessageConv}}" TextColor="{Binding SelectedLeg, Converter={x:StaticResource TimeColorConv}}" Grid.Row="7" Grid.Column="4" Style="{StaticResource PlainLabel}" />
                 </Grid>
             </ContentPage.Content>
         </ContentPage>

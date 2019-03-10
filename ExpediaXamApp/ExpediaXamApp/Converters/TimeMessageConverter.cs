@@ -23,13 +23,10 @@ namespace ExpediaXamApp.Converters
                         return "ON-Time";
                     }
 
-                    if (leg.ATD != "")
-                    {
-                        if (DateTime.Parse(leg.ATD) > DateTime.Parse(leg.STD))
-                            return "Delayed";
+                    if (DateTime.Parse(leg.ATD) > DateTime.Parse(leg.STD))
+                        return "Delayed";
 
-                        return "ON-Time";
-                    }
+                    return "ON-Time";
                 }
 
                 return "Unknown";

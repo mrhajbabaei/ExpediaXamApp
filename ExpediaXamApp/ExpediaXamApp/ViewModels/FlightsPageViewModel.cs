@@ -44,6 +44,7 @@ namespace ExpediaXamApp.ViewModels
                 if (_selectedLeg != value)
                 {
                     _selectedLeg = value;
+                    OnPropertyChanged();
                 }
             }
         }
@@ -72,7 +73,7 @@ namespace ExpediaXamApp.ViewModels
                 new Leg() { FlightNumber=152, Departure="IKA", Arrival="DXP", STD="09:00", STA="12:00", ATD="", ATA="", DepartureGateNumber=20, ArrivalGateNumber=52 },
                 new Leg() { FlightNumber=151, Departure="DXP", Arrival="IKA", STD="16:00", STA="19:00", ATD="", ATA="", DepartureGateNumber=27, ArrivalGateNumber=85 },
                 new Leg() { FlightNumber=14, Departure="THR", Arrival="MHD", STD="08:00", STA="10:00", ATD="08:10", ATA="10:10", DepartureGateNumber=27, ArrivalGateNumber=85 },
-                new Leg() { FlightNumber=13, Departure="MHD", Arrival="KER", STD="11:00", STA="13:00", ATD="11:10", ATA="", DepartureGateNumber=27, ArrivalGateNumber=85 },
+                new Leg() { FlightNumber=13, Departure="MHD", Arrival="KER", STD="11:00", STA="13:00", ATD="11:00", ATA="", DepartureGateNumber=27, ArrivalGateNumber=85 },
                 new Leg() { FlightNumber=12, Departure="KER", Arrival="MHD", STD="14:00", STA="15:00", ATD="", ATA="", DepartureGateNumber=27, ArrivalGateNumber=85 },
                 new Leg() { FlightNumber=11, Departure="MHD", Arrival="THR", STD="16:00", STA="17:00", ATD="", ATA="", DepartureGateNumber=27, ArrivalGateNumber=85 }
 
