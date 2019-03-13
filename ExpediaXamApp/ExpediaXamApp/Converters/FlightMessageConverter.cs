@@ -11,12 +11,12 @@ namespace ExpediaXamApp.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is Leg leg)
+            if (value is Flight flight)
             {
-                if ( leg.ATD != "" && leg.ATA != "" )
+                if ( flight.ATD != "" && flight.ATA != "" )
                     return "See you soon ;)";
 
-                else if ( leg.ATD != "" )
+                else if ( flight.ATD != "" )
                     return "Have a happy landing ;)";
 
                 else

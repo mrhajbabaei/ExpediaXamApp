@@ -11,19 +11,19 @@ namespace ExpediaXamApp.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is Leg leg)
+            if (value is Flight flight)
             {
-                if ((leg.ATA != "") || (leg.ATD != ""))
+                if ((flight.ATA != "") || (flight.ATD != ""))
                 {
-                    if (leg.ATA != "")
+                    if (flight.ATA != "")
                     {
-                        if (DateTime.Parse(leg.ATA) > DateTime.Parse(leg.STA))
+                        if (DateTime.Parse(flight.ATA) > DateTime.Parse(flight.STA))
                             return Color.Red;
 
                         return Color.Green;
                     }
 
-                    if (DateTime.Parse(leg.ATD) > DateTime.Parse(leg.STD))
+                    if (DateTime.Parse(flight.ATD) > DateTime.Parse(flight.STD))
                         return Color.Red;
 
                     return Color.Green;

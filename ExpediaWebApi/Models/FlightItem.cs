@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace ExpediaXamApp.Models
+namespace ExpediaWebApi.Models
 {
-    public class Leg
+    public class FlightItem
     {
+        public long Id { get; set; }
         public uint FlightNumber { get; set; }
         public string Departure { get; set; }
         public string Arrival { get; set; }

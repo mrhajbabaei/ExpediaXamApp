@@ -48,9 +48,9 @@
                 </Grid.ColumnDefinitions>
                     <Extensions:GradientColorStack Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="6" StartColor="Violet" EndColor="Red" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
                         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" >
-                            <Label Text="{Binding SelectedLeg, Converter={x:StaticResource FlightMessageConv}}" Font="Bold,Small" HorizontalOptions="CenterAndExpand" />
-                            <Label Text="{Binding SelectedLeg, Converter={StaticResource BoardingMessageConv}}" Font="Bold,Small" HorizontalOptions="CenterAndExpand" />
-                            <Label Text="{Binding SelectedLeg, Converter={StaticResource PlaceToTextValueConv}}" Font="Bold, Large" HorizontalOptions="CenterAndExpand" />
+                            <Label Text="{Binding SelectedFlight, Converter={x:StaticResource FlightMessageConv}}" Font="Bold,Small" HorizontalOptions="CenterAndExpand" />
+                            <Label Text="{Binding SelectedFlight, Converter={StaticResource BoardingMessageConv}}" Font="Bold,Small" HorizontalOptions="CenterAndExpand" />
+                            <Label Text="{Binding SelectedFlight, Converter={StaticResource PlaceToTextValueConv}}" Font="Bold, Large" HorizontalOptions="CenterAndExpand" />
                             <Frame OutlineColor="Black" HorizontalOptions="Center">
                                 <Label Text="View Boarding Pass" Font="Bold, Micro" HorizontalOptions="Center" />
                             </Frame>
@@ -58,9 +58,9 @@
                                 HorizontalOptions="CenterAndExpand"
                                 TextColor="Blue"
                                 Title="All Flights"
-                                ItemsSource="{Binding Legs}"
+                                ItemsSource="{Binding Flights}"
                                 ItemDisplayBinding="{Binding .,Converter={StaticResource PlaceToTextValueConv}}"
-                                SelectedItem="{Binding SelectedLeg}" />
+                                SelectedItem="{Binding SelectedFlight}" />
                         </StackLayout>
                     </Extensions:GradientColorStack>
                     <Label Text="Term" Grid.Row="6" Grid.Column="0" Style="{StaticResource PlainLabel}" />
@@ -68,36 +68,26 @@
                     <Label Text="Seat" Grid.Row="6" Grid.Column="2" Style="{StaticResource PlainLabel}" />
                     <Label Text="Depart" Grid.Row="6" Grid.Column="3" Style="{StaticResource PlainLabel}" />
                     <Label Text="1" Grid.Row="7" Grid.Column="0" Style="{StaticResource PlainLabel}" />
-                    <Label Text="{Binding SelectedLeg, Converter={x:StaticResource LegToGateConv}}" Grid.Row="7" Grid.Column="1" Style="{StaticResource PlainLabel}" />
+                    <Label Text="{Binding SelectedFlight, Converter={x:StaticResource LegToGateConv}}" Grid.Row="7" Grid.Column="1" Style="{StaticResource PlainLabel}" />
                     <Label Text="B17" Grid.Row="7" Grid.Column="2" Style="{StaticResource PlainLabel}" />
-                    <Label Text="{Binding SelectedLeg, Converter={x:StaticResource LegToDepartureConv}}" Grid.Row="7" Grid.Column="3" Style="{StaticResource PlainLabel}" />
-                    <Label Text="{Binding SelectedLeg, Converter={x:StaticResource TimeMessageConv}}" TextColor="{Binding SelectedLeg, Converter={x:StaticResource TimeColorConv}}" Grid.Row="7" Grid.Column="4" Style="{StaticResource PlainLabel}" />
+                    <Label Text="{Binding SelectedFlight, Converter={x:StaticResource LegToDepartureConv}}" Grid.Row="7" Grid.Column="3" Style="{StaticResource PlainLabel}" />
+                    <Label Text="{Binding SelectedFlight, Converter={x:StaticResource TimeMessageConv}}" TextColor="{Binding SelectedFlight, Converter={x:StaticResource TimeColorConv}}" Grid.Row="7" Grid.Column="4" Style="{StaticResource PlainLabel}" />
                 </Grid>
             </ContentPage.Content>
         </ContentPage>
             <ContentPage Title="Edit Data" Icon="permdata.png">
                 <ContentPage.Content>
-                    <TableView Intent="Menu" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand">
-                        <TableRoot>
-                        <TableSection>
-                                <ViewCell>
-                                    <StackLayout Orientation="Horizontal">
-                                    <ListView SeparatorColor="OrangeRed" ItemsSource="{Binding Legs}">
-                                            <ListView.ItemTemplate>
-                                                <DataTemplate>
-                                                    <ImageCell Text="{Binding ., Converter={x:StaticResource PlaceToTextValueConv}}" Detail="{Binding ., Converter={x:StaticResource TimeToTextValueConv}}" ImageSource="flight.png" >
-                                                        <TextCell.ContextActions>
-                                                            <MenuItem Text="Delete" Command="DeleteFlightCommand" IsDestructive="True" CommandParameter="{Binding .}" />
-                                                        </TextCell.ContextActions>
-                                                    </ImageCell>
-                                                </DataTemplate>
-                                            </ListView.ItemTemplate>
-                                        </ListView>
-                                    </StackLayout>
-                                </ViewCell>
-                            </TableSection>
-                        </TableRoot>
-                    </TableView>
+                    <ListView SeparatorColor="Red" ItemsSource="{Binding Flights}" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ImageCell Text="{Binding ., Converter={x:StaticResource PlaceToTextValueConv}}" Detail="{Binding ., Converter={x:StaticResource TimeToTextValueConv}}" ImageSource="car.png" >
+                                    <!--<TextCell.ContextActions>
+                                        <MenuItem Text="Delete" Command="DeleteFlightCommand" IsDestructive="True" CommandParameter="{Binding .}" />
+                                    </TextCell.ContextActions>-->
+                                </ImageCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </ContentPage.Content>
             </ContentPage>
         </TabbedPage.Children>

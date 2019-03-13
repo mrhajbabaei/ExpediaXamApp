@@ -20,7 +20,10 @@ namespace ExpediaXamApp.ViewModels
 
         public IntroductionPageViewModel()
         {
-            ShowFlightsCommand = new Command(() => ShowFlights());
+            ShowFlightsCommand = new Command(() =>
+            {
+                ShowFlights();
+            });
         }
 
         public object ShowFlightsCommand { get; set; }

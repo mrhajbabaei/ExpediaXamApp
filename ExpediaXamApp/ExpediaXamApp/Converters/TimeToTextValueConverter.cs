@@ -11,8 +11,8 @@ namespace ExpediaXamApp.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is Leg leg)
-                return $"{leg.STD} to {leg.STA}";
+            if (value is Flight flight)
+                return $"{flight.STD} to {flight.STA}";
 
             return null;
         }
