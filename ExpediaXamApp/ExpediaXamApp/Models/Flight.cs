@@ -7,7 +7,7 @@ namespace ExpediaXamApp.Models
     public class Flight
     {
         public long Id { get; set; }
-        public uint FlightNumber { get; set; }
+        public long FlightNumber { get; set; }
         public string Departure { get; set; }
         public string Arrival { get; set; }
         public string STD { get; set; }

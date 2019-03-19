@@ -1,42 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
-<Package
-  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
-  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
-  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
-  IgnorableNamespaces="uap mp">
-
-  <Identity
-    Name="01825948-cc48-45ad-a962-dcb2884b85f8"
-    Publisher="CN=134078b4-3878-4fa7-9616-bbbf027c3f8a"
-    Version="1.0.0.0" />
-
-  <mp:PhoneIdentity PhoneProductId="ec0cc741-fd3e-485c-81be-68815c480690" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
-
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3" xmlns:uap6="http://schemas.microsoft.com/appx/manifest/uap/windows10/6" xmlns:iot="http://schemas.microsoft.com/appx/manifest/iot/windows10" xmlns:uap4="http://schemas.microsoft.com/appx/manifest/uap/windows10/4" xmlns:uap2="http://schemas.microsoft.com/appx/manifest/uap/windows10/2" xmlns:mobile="http://schemas.microsoft.com/appx/manifest/mobile/windows10" IgnorableNamespaces="uap mp uap3 uap6 iot uap4 uap2 mobile">
+  <Identity Name="01825948-cc48-45ad-a962-dcb2884b85f8" Publisher="CN=134078b4-3878-4fa7-9616-bbbf027c3f8a" Version="1.0.0.0" />
+  <mp:PhoneIdentity PhoneProductId="ec0cc741-fd3e-485c-81be-68815c480690" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>ExpediaXamApp.UWP</DisplayName>
     <PublisherDisplayName>134078b4-3878-4fa7-9616-bbbf027c3f8a</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
-
   <Dependencies>
     <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
   </Dependencies>
-
   <Resources>
-    <Resource Language="x-generate"/>
+    <Resource Language="x-generate" />
   </Resources>
-
   <Applications>
-    <Application Id="App"
-      Executable="$targetnametoken$.exe"
-      EntryPoint="ExpediaXamApp.UWP.App">
-      <uap:VisualElements
-        DisplayName="ExpediaXamApp.UWP"
-        Square150x150Logo="Assets\Square150x150Logo.png"
-        Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="ExpediaXamApp.UWP"
-        BackgroundColor="transparent">
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="ExpediaXamApp.UWP.App">
+      <uap:VisualElements DisplayName="ExpediaXamApp.UWP" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="ExpediaXamApp.UWP" BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\SmallTile.png">
           <uap:ShowNameOnTiles>
             <uap:ShowOn Tile="square150x150Logo" />
@@ -48,8 +27,44 @@
       </uap:VisualElements>
     </Application>
   </Applications>
-
   <Capabilities>
     <Capability Name="internetClient" />
+    <Capability Name="internetClientServer" />
+    <Capability Name="allJoyn" />
+    <Capability Name="codeGeneration" />
+    <Capability Name="privateNetworkClientServer" />
+    <uap:Capability Name="blockedChatMessages" />
+    <uap3:Capability Name="backgroundMediaPlayback" />
+    <uap:Capability Name="appointments" />
+    <uap:Capability Name="chat" />
+    <uap:Capability Name="enterpriseAuthentication" />
+    <uap6:Capability Name="graphicsCapture" />
+    <uap:Capability Name="contacts" />
+    <iot:Capability Name="lowLevelDevices" />
+    <uap:Capability Name="musicLibrary" />
+    <uap:Capability Name="objects3D" />
+    <uap4:Capability Name="offlineMapsManagement" />
+    <uap:Capability Name="phoneCall" />
+    <uap2:Capability Name="phoneCallHistoryPublic" />
+    <uap:Capability Name="picturesLibrary" />
+    <mobile:Capability Name="recordedCallsFolder" />
+    <uap:Capability Name="removableStorage" />
+    <uap:Capability Name="sharedUserCertificates" />
+    <uap2:Capability Name="spatialPerception" />
+    <uap3:Capability Name="remoteSystem" />
+    <iot:Capability Name="systemManagement" />
+    <uap4:Capability Name="userDataTasks" />
+    <uap:Capability Name="userAccountInformation" />
+    <uap3:Capability Name="userNotificationListener" />
+    <uap:Capability Name="voipCall" />
+    <uap:Capability Name="videosLibrary" />
+    <DeviceCapability Name="bluetooth" />
+    <DeviceCapability Name="gazeInput" />
+    <DeviceCapability Name="location" />
+    <DeviceCapability Name="lowLevel" />
+    <DeviceCapability Name="microphone" />
+    <DeviceCapability Name="pointOfService" />
+    <DeviceCapability Name="proximity" />
+    <DeviceCapability Name="webcam" />
   </Capabilities>
 </Package>
